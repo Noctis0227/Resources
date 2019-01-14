@@ -11,19 +11,19 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>https://git.diabin.com/zhouwen/hlc-wallet-download/apps/hlcwallet.ipa</string>
+					<string>http://downloads.diabin.com/ios/apps/hlcwallet.ipa</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>display-image</string>
 					<key>url</key>
-					<string>https://git.diabin.com/zhouwen/hlc-wallet-download/icons/57.png</string>
+					<string>http://downloads.diabin.com/ios/icons/57.png</string>
 				</dict>
 				<dict>
 					<key>kind</key>
 					<string>full-size-image</string>
 					<key>url</key>
-					<string>https://git.diabin.com/zhouwen/hlc-wallet-download/icons/512.png</string>
+					<string>http://downloads.diabin.com/ios/icons/512.png</string>
 				</dict>
 			</array>
 			<key>metadata</key>
