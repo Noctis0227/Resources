@@ -49,11 +49,28 @@
 			max-width: 100%;
 			height: auto
 		}
+
+		.warn {
+			background: rgba(0, 0, 0, .75);
+			z-index: 100;
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+
+		.warn img {
+			width: 100vw;
+			margin: 0 auto;
+		}
 	</style>
 	<script src="./js/zepto.min.js" type="text/javascript"></script>
 	<script src="./js/swiper.jquery.min.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
+
 		function mobile_provision() {
 			document.getElementById('actions').innerHTML = '<p>正在安装，请按 Home 键在桌面查看</p>';
 		}
@@ -100,42 +117,47 @@
 	<span class="pattern right"><img src="./images/right.png"></span>
 	<div class="out-container">
 		<div class="main">
-			<header>
-				<div class="table-container">
-					<div class="cell-container">
-						<div class="app-brief">
-							<div class="icon-container wrapper">
-								<i class="icon-icon_path bg-path"></i>
-								<span class="icon"><img src="./images/512.png"></span>
-							</div>
-							<h1 class="name wrapper"><span class="icon-warp" style="margin-left:0px"><i
-										class="icon-ios"></i>HLC Wallet</span></h1>
-							<div class="release-info">
-								<p>v0.3.10 (build 28)</p>
-								<p>2019-06-17</p>
-							</div>
-							<div id="actions" class="actions">
-								<button class='down_btn ipa' style="display: none; margin: auto;";
-									onclick="install_app('itms-services:///?action=download-manifest&url=https://app.hlcwallet.info/manifest.plist')">Download</button>
-								<button class='down_btn apk' style="display: none; margin: auto;";
-									onclick="install_app('https://app.hlcwallet.info/dl/wallet.apk')">Download</button>
-							</div>
+			<div class="table-container">
+				<div class="cell-container">
+					<div class="app-brief">
+						<div class="icon-container wrapper">
+							<i class="icon-icon_path bg-path"></i>
+							<span class="icon"><img src="./images/512.png"></span>
+						</div>
+						<h1 class="name wrapper"><span class="icon-warp" style="margin-left:0px"><i
+									class="icon-ios"></i>HLC Wallet</span></h1>
+						<div class="release-info">
+							<p>v0.3.10 (build 28)</p>
+							<p>2019-06-17</p>
+						</div>
+						<div id="actions" class="actions">
+							<button class='down_btn ipa' style="display: none; margin: auto;" ;
+								onclick="install_app('itms-services:///?action=download-manifest&url=https://app.hlcwallet.info/manifest.plist')">Download</button>
+							<button class='down_btn apk' style="display: none; margin: auto;" ;
+								onclick="install_app('https://app.hlcwallet.info/dl/wallet.apk')">Download</button>
 						</div>
 					</div>
 				</div>
-			</header>
+			</div>
 		</div>
 	</div>
 	<div class="mask" style="display:none"></div>
+	<div class="warn"><img src="/images/explorer.png"></div>
 	<script>
 		function mobile() {
-			const ua = navigator.userAgent;
-			if (ua.indexOf('iPhone') > -1) {
+			const ua = navigator.userAgent.toLowerCase();
+
+			if (ua.indexOf('micromessenger') > -1) {
+				document.getElementsByClassName('warn')[0].style.display = 'block';
+				document.getElementById('actions').remove();
+			}
+
+			if (ua.indexOf('iphone') > -1) {
 				document.getElementsByClassName('apk')[0].remove();
-				document.getElementsByClassName('ipa')[0].style.display='block';
-			} else if (ua.indexOf('Android') > -1) {
+				document.getElementsByClassName('ipa')[0].style.display = 'block';
+			} else if (ua.indexOf('android') > -1) {
 				document.getElementsByClassName('ipa')[0].remove();
-				document.getElementsByClassName('apk')[0].style.display='block';
+				document.getElementsByClassName('apk')[0].style.display = 'block';
 			} else {
 				document.getElementById('actions').remove();
 			}
