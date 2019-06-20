@@ -58,7 +58,6 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			display: none;
 		}
 
 		.warn img {
@@ -142,14 +141,15 @@
 		</div>
 	</div>
 	<div class="mask" style="display:none"></div>
-	<div class="warn"><img src="/images/explorer.png"></div>
+	<section></section>
 	<script>
 		function mobile() {
 			const ua = navigator.userAgent.toLowerCase();
 
 			if (ua.indexOf('micromessenger') > -1) {
-				document.getElementsByClassName('warn')[0].style.display = 'block';
-				document.getElementById('actions').remove();
+				const section = document.getElementsByTagName('section')[0]
+				section.innerHTML = `<div class="warn"><img src="/images/explorer.png"></div>`
+				// document.getElementById('actions').remove();
 			}
 
 			if (ua.indexOf('iphone') > -1) {
